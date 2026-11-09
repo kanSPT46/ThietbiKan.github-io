@@ -3,66 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BOSS CHECK — Hệ Gì Đây</title>
+<title>Dance Check — Vũ Điệu Của Bạn</title>
 <style>
   :root {
-    --bg:#0e1013; --panel:#17191d; --line:#2b2e34;
-    --gold:#c9a227; --gold-d:#8a6f1c;
-    --ink:#e9e6df; --ink-dim:#9a9a97;
-    --roast:#b3433f;
+    --bg:#fdfaf9; --panel:#ffffff; --line:#f0e4e6;
+    --rose:#d98ca0; --rose-d:#b9647e; --rose-l:#fbeef1;
+    --ink:#3d3236; --ink-dim:#9a8b90;
+    --warn:#c25b75;
     padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   }
   * { box-sizing:border-box; }
   html { scroll-padding-top:env(safe-area-inset-top,0px); }
   body {
     margin:0; padding:20px; min-height:100%; display:flex; align-items:center; justify-content:center;
-    background:
-      radial-gradient(circle at 50% -10%, #1b2027, var(--bg) 55%);
-    color:var(--ink); font-family:-apple-system,"Segoe UI",system-ui,sans-serif;
+    background:radial-gradient(circle at 50% -10%, #fff 0%, #fbeef1 45%, var(--bg) 100%);
+    background-attachment:fixed;
+    color:var(--ink); font-family:"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
   }
+  button, input, textarea, select { font-family:inherit; }
   .game { width:100%; max-width:480px; padding:28px 24px 30px; background:var(--panel);
-    border:1px solid var(--line); border-radius:10px; box-shadow:0 20px 50px rgba(0,0,0,.45); }
-  .hud { display:flex; align-items:center; gap:10px; margin-bottom:20px; font-size:12px; color:var(--ink-dim); letter-spacing:.02em; }
-  .bar { flex:1; height:4px; background:var(--line); border-radius:2px; overflow:hidden; }
-  .bar i { display:block; height:100%; width:0; background:var(--gold); transition:width .35s; }
-  h1 { font-size:30px; line-height:1.1; margin:4px 0 12px; color:var(--ink); font-weight:800; letter-spacing:-.01em; }
-  h2 { font-size:20px; line-height:1.25; margin:0 0 6px; font-weight:700; color:var(--ink); }
-  h3 { color:var(--gold); margin:20px 0 8px; font-size:14px; font-weight:700; }
-  .sub { font-weight:400; color:var(--ink-dim); margin:0 0 16px; line-height:1.55; font-size:14.5px; }
-  .notice { background:#1b1510; border:1px solid var(--gold-d); border-radius:8px; padding:12px 14px; font-size:13px;
-    line-height:1.55; color:#d8c896; margin:0 0 16px; }
-  .joke { font-weight:600; color:var(--roast); font-size:13.5px; margin:12px 0 0; min-height:18px; }
-  input, textarea { width:100%; padding:13px; font-size:16px; color:var(--ink);
-    background:#0b0c0e; border:1px solid var(--line); border-radius:6px; font-family:inherit; }
-  input:focus, textarea:focus, button:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-  select { width:100%; padding:13px 8px; font-size:16px; color:var(--ink); background:#0b0c0e; border:1px solid var(--line); border-radius:6px; font-family:inherit; }
-  select:focus { outline:2px solid var(--gold); outline-offset:2px; }
+    border:1px solid var(--line); border-radius:22px; box-shadow:0 18px 45px rgba(185,100,126,.12); }
+  .hud { display:flex; align-items:center; gap:10px; margin-bottom:20px; font-size:12px; color:var(--ink-dim); letter-spacing:.04em; }
+  .bar { flex:1; height:5px; background:var(--rose-l); border-radius:3px; overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#efb5c4,var(--rose-d)); border-radius:3px; transition:width .35s; }
+  h1 { font-size:30px; line-height:1.25; margin:4px 0 12px; color:var(--ink); font-weight:700; }
+  h2 { font-size:20px; line-height:1.35; margin:0 0 6px; font-weight:700; color:var(--ink); }
+  h3 { color:var(--rose-d); margin:22px 0 8px; font-size:14px; font-weight:700; }
+  .sub { font-weight:400; color:var(--ink-dim); margin:0 0 16px; line-height:1.6; font-size:14.5px; }
+  .notice { background:var(--rose-l); border:1px solid #f1d3da; border-radius:14px; padding:13px 15px; font-size:13px;
+    line-height:1.6; color:#7a5160; margin:0 0 16px; text-align:left; }
+  .joke { font-weight:500; color:var(--warn); font-size:13.5px; margin:12px 0 0; min-height:18px; font-style:italic; }
+  input, textarea { width:100%; padding:13px 14px; font-size:16px; color:var(--ink);
+    background:#fff; border:1px solid var(--line); border-radius:12px; font-family:inherit; }
+  input:focus, textarea:focus, button:focus-visible { outline:2px solid var(--rose); outline-offset:2px; }
+  select { width:100%; padding:13px 8px; font-size:16px; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:12px; font-family:inherit; }
+  select:focus { outline:2px solid var(--rose); outline-offset:2px; }
   .dob { display:grid; grid-template-columns:1fr 1.5fr 1.2fr; gap:8px; }
   input[type=color] { height:60px; padding:4px; cursor:pointer; }
   .opts { display:grid; gap:9px; } .opts.two { grid-template-columns:1fr 1fr; }
-  .opt, .go, .ghost { font-family:inherit; font-size:15px; color:var(--ink); cursor:pointer; padding:13px; border-radius:6px;
-    border:1px solid var(--line); background:#0b0c0e; text-align:left; transition:transform .1s, background .1s, border-color .1s; }
-  .opt:hover { background:#1e2127; border-color:var(--gold-d); transform:translateY(-1px); }
-  .opt.on { background:var(--gold); color:#141414; border-color:var(--gold); font-weight:700; }
-  .go { width:100%; margin-top:16px; text-align:center; background:var(--gold); color:#141414; border:none; font-size:15.5px; font-weight:700; }
-  .go:hover { filter:brightness(1.08); }
-  .go:disabled { opacity:.5; cursor:not-allowed; filter:none; }
+  .opt, .go, .ghost { font-family:inherit; font-size:15px; color:var(--ink); cursor:pointer; padding:13px 15px; border-radius:14px;
+    border:1px solid var(--line); background:#fff; text-align:left; transition:transform .1s, background .15s, border-color .15s; }
+  .opt:hover { background:var(--rose-l); border-color:var(--rose); transform:translateY(-1px); }
+  .opt.on { background:var(--rose); color:#fff; border-color:var(--rose); font-weight:600; }
+  .go { width:100%; margin-top:16px; text-align:center; background:linear-gradient(135deg,#e5a0b3,var(--rose-d)); color:#fff; border:none; font-size:15.5px; font-weight:600; box-shadow:0 6px 16px rgba(185,100,126,.25); }
+  .go:hover { filter:brightness(1.05); }
+  .go:disabled { opacity:.45; cursor:not-allowed; filter:none; box-shadow:none; }
   .ghost { width:100%; margin-top:9px; text-align:center; font-size:13px; color:var(--ink-dim); background:transparent; }
-  .err { color:#e2645f; font-weight:700; min-height:18px; margin:8px 0 0; font-size:13px; }
-  .arena { position:relative; height:260px; background:#0b0c0e; border:1px dashed var(--line); border-radius:8px; overflow:hidden; }
+  .err { color:var(--warn); font-weight:600; min-height:18px; margin:8px 0 0; font-size:13px; }
+  .arena { position:relative; height:260px; background:#fffafb; border:1.5px dashed #ecd0d7; border-radius:18px; overflow:hidden; }
   .arena .msg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:10px; font-size:14px; color:var(--ink-dim); }
-  .tgt { position:absolute; border-radius:50%; border:none; background:var(--gold); cursor:pointer; padding:0;
-    box-shadow:0 0 0 3px rgba(201,162,39,.2); }
-  .tgt.decoy { background:#555; box-shadow:0 0 0 3px rgba(85,85,85,.2); }
-  .preview { width:100%; max-height:220px; object-fit:contain; border-radius:6px; border:1px solid var(--line); margin-top:10px; display:none; }
-  .row { display:flex; gap:8px; align-items:center; margin:7px 0; font-size:13px; font-weight:600; }
-  .row b { width:110px; color:var(--ink-dim); font-weight:600; } .row .m { flex:1; height:8px; background:#0b0c0e; border-radius:4px; overflow:hidden; } .row .m i { display:block; height:100%; background:var(--gold); }
-  .tag { display:inline-block; margin:3px; padding:5px 11px; background:#0b0c0e; border:1px solid var(--line); border-radius:20px; font-size:12.5px; color:var(--ink-dim); }
-  ul.kl { padding-left:18px; margin:0; font-weight:400; line-height:1.6; font-size:14.5px; }
+  .tgt { position:absolute; border-radius:50%; border:none; background:radial-gradient(circle at 35% 30%, #f6c6d2, var(--rose-d)); cursor:pointer; padding:0;
+    box-shadow:0 0 0 4px rgba(217,140,160,.2); }
+  .tgt.decoy { background:#cfc6c9; box-shadow:0 0 0 4px rgba(190,180,184,.2); }
+  .preview { width:100%; max-height:220px; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-top:10px; display:none; }
+  .row { display:flex; gap:8px; align-items:center; margin:8px 0; font-size:13px; font-weight:500; }
+  .row b { width:118px; color:var(--ink-dim); font-weight:500; } .row .m { flex:1; height:8px; background:var(--rose-l); border-radius:4px; overflow:hidden; } .row .m i { display:block; height:100%; background:linear-gradient(90deg,#efb5c4,var(--rose-d)); border-radius:4px; }
+  .tag { display:inline-block; margin:3px; padding:5px 12px; background:var(--rose-l); border:1px solid #f1d3da; border-radius:20px; font-size:12.5px; color:var(--rose-d); }
+  ul.kl { padding-left:18px; margin:0; font-weight:400; line-height:1.65; font-size:14.5px; }
   ul.kl li { margin-bottom:9px; }
   .center { text-align:center; } .big { font-size:52px; margin:4px 0; }
   .pop { animation:pop .3s ease; } @keyframes pop { from { transform:translateY(6px); opacity:0; } to { transform:none; opacity:1; } }
-  .spin { display:inline-block; animation:sp 1.1s linear infinite; } @keyframes sp { to { transform:rotate(360deg); } }
+  .spin { display:inline-block; animation:sp 1.6s ease-in-out infinite; } @keyframes sp { 0%,100% { transform:rotate(-12deg) scale(1); } 50% { transform:rotate(12deg) scale(1.1); } }
   @media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important; } }
 </style>
 </head>
@@ -83,7 +84,7 @@ const next = () => { idx++; idx < L.length ? L[idx]() : finish(); };
 
 function hud() {
   const p = Math.round(idx / (L.length - 1) * 100);
-  return `<div class="hud"><span>MÀN ${idx}/${L.length - 1}</span><div class="bar"><i style="width:${p}%"></i></div><span>${idx*150} EXP</span></div>`;
+  return `<div class="hud"><span>BƯỚC ${idx}/${L.length - 1}</span><div class="bar"><i style="width:${p}%"></i></div><span>♪ ${idx*10}</span></div>`;
 }
 function show(inner) { G.innerHTML = hud() + `<div class="pop">${inner}</div>`; }
 
@@ -97,7 +98,7 @@ function ask(key, title, sub, o = {}) {
          <select id="dy" aria-label="Năm"><option value="">Năm</option>${opt(i => yr - i, 100, v => `<option value="${v}">${v}</option>`)}</select></div>
          <p class="sub" id="dobv" style="margin:10px 0 0"></p>`
       : type === "area" ? `<textarea id="in" rows="3" placeholder="${o.ph||""}"></textarea>`
-      : `<input id="in" type="${type}" ${type==="color"?'value="#c9a227"':""} placeholder="${o.ph||""}">`;
+      : `<input id="in" type="${type}" ${type==="color"?'value="#f4b6c6"':""} placeholder="${o.ph||""}">`;
     show(`<h2>${title}</h2><p class="sub">${sub}</p>${field}<p class="err" id="err"></p>
       <p class="joke">${o.joke||""}</p><button class="go" id="ok">${o.btn||"Tiếp tục"}</button>`);
     const err = document.getElementById("err");
@@ -116,7 +117,7 @@ function ask(key, title, sub, o = {}) {
         if (t.getMonth() !== m - 1 || t.getDate() !== d || t > new Date()) { err.textContent = "Ngày này không có thật (hoặc ở tương lai), kiểm tra lại giúp nhé."; return; }
         v = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
       } else v = el.value.trim();
-      if (!v) { err.textContent = o.empty || "Bỏ trống là game không duyệt đâu."; return; }
+      if (!v) { err.textContent = o.empty || "Bạn điền một chút rồi mình đi tiếp nhé."; return; }
       ans[key] = v; next();
     };
     document.getElementById("ok").onclick = go;
@@ -150,40 +151,40 @@ function pick(key, title, sub, opts, o = {}) {
 
 // ===== MÀN MỞ ĐẦU — nói rõ ngay từ đầu =====
 L.push(() => {
-  G.innerHTML = `<div class="center pop"><div class="big">🎮</div><h1>Boss Check</h1>
-    <p class="notice">Trò chơi này do <b>${CREATORS}</b> tạo ra, dành riêng cho người được gửi link này chơi.
+  G.innerHTML = `<div class="center pop"><div class="big">🩰</div><h1>Dance Check</h1>
+    <p class="notice">Bài trắc nghiệm vui này do <b>${CREATORS}</b> tạo ra, dành riêng cho người được gửi link này.
     Những gì bạn nhập — tên, ngày sinh, vài câu trả lời vui, và (nếu bạn muốn) một tấm ảnh bạn tự chọn tải lên —
-    sẽ được gửi cho <b>Thiết bị Kan</b> xem.  ảnh là tự nguyện, bạn chọn ảnh nào thì gửi ảnh đó.
-    Chơi tiếp nghĩa là bạn đồng ý với điều đó.</p>
-    <p class="sub">Vượt ${L.length - 1} màn để biết ông/bà thuộc hệ gì, cung gì, và bị game bóc mẽ tới đâu. Đừng gian lận, game tính hết.</p>
-    <button class="go" id="st">Tôi hiểu, vào game</button></div>`;
+    sẽ được gửi cho <b>${CREATORS}</b> xem. Ảnh là tự nguyện, bạn chọn ảnh nào thì gửi ảnh đó.
+    Tiếp tục nghĩa là bạn đồng ý với điều đó.</p>
+    <p class="sub">Qua ${L.length - 1} bước nhỏ để khám phá phong cách múa của bạn, cung hoàng đạo và vài điều thú vị khác. Cứ thoải mái, không có đúng hay sai.</p>
+    <button class="go" id="st">Tôi hiểu, bắt đầu thôi</button></div>`;
   document.getElementById("st").onclick = () => next();
 });
 
-ask("Ten", "TẠO NHÂN VẬT", "Tên thật hay nickname, tuỳ ông/bà.", { ph:"VD: Thiết bị...", joke:"Đặt là 'ABC' thì game biết ngay là đang lười.", btn:"Chốt tên" });
+ask("Ten", "TÊN TRÊN SÂN KHẤU", "Tên thật hay nghệ danh, tuỳ bạn.", { ph:"VD: Dance...", joke:"Một cái tên đẹp là màn chào sân hoàn hảo.", btn:"Chốt tên" });
 
-// Mini-game phản xạ — khó hơn: 7 vòng, có mồi nhử phải tránh, bia nhỏ dần
+// Mini-game nhịp: 7 vòng, bắt nhịp bằng bia hồng, bia xám là bước lạc nhịp
 L.push(() => {
-  show(`<h2>TEST TAY NHANH — BẢN KHÓ</h2><p class="sub">7 vòng. Bia vàng thì bấm, bia xám là mồi nhử — bấm nhầm bị cộng giờ phạt. Bia nhỏ dần theo vòng.</p>
-    <div class="arena" id="ar"><div class="msg">Sẵn sàng chưa...</div></div><p class="joke" id="j"></p>`);
+  show(`<h2>THỬ BẮT NHỊP</h2><p class="sub">7 nhịp. Chạm vào nốt hồng ngay khi nó hiện ra. Nốt xám là bước lạc nhịp — chạm nhầm sẽ bị trừ điểm. Nốt nhỏ dần theo từng nhịp.</p>
+    <div class="arena" id="ar"><div class="msg">Chuẩn bị tư thế nhé...</div></div><p class="joke" id="j"></p>`);
   const ar = document.getElementById("ar"), j = document.getElementById("j"), t = [];
   const ROUNDS = 7;
-  const lines = ["Khởi động.", "Tạm ổn.", "Bắt đầu vào guồng.", "Tay có đang run không đấy?", "Quá nửa rồi.", "Gần xong, đừng ảo tưởng.", "Chốt hạ."];
+  const lines = ["Khởi động nhẹ.", "Vào nhịp rồi.", "Rất mượt.", "Giữ nhịp thở đều nhé.", "Quá nửa rồi.", "Gần tới đoạn cuối.", "Cúi chào khán giả!"];
   function spawnDecoy() {
     const size = 50;
     const b = document.createElement("button"); b.className = "tgt decoy"; b.style.width = b.style.height = size + "px";
     b.style.left = Math.random() * (ar.clientWidth - size) + "px"; b.style.top = Math.random() * (ar.clientHeight - size) + "px";
-    b.onclick = () => { t[t.length-1] = (t[t.length-1]||0) + 260; j.textContent = "Mồi nhử đó! Cộng giờ phạt."; };
+    b.onclick = () => { t[t.length-1] = (t[t.length-1]||0) + 260; j.textContent = "Bước lạc nhịp rồi, thử lại nhé."; };
     ar.appendChild(b);
     setTimeout(() => b.remove(), 650);
   }
   function round() {
     if (t.length === ROUNDS) {
       const avg = Math.round(t.reduce((a, b) => a + b) / ROUNDS); ans.Phan_xa_ms = avg;
-      j.textContent = avg < 420 ? "Tay nghề thật, không phải khoe suông." : avg < 600 ? "Ổn, chưa đủ để lên mặt với ai." : "Chậm, nhưng ít nhất ông/bà cẩn thận.";
+      j.textContent = avg < 420 ? "Bắt nhịp nhanh và gọn, rất có năng khiếu." : avg < 600 ? "Nhịp ổn định, luyện thêm là mượt hơn nữa." : "Chậm rãi nhưng chắc chắn, kiểu người múa có chiều sâu.";
       return setTimeout(next, 1400);
     }
-    ar.innerHTML = `<div class="msg">Chờ nó hiện ra...</div>`;
+    ar.innerHTML = `<div class="msg">Lắng nghe nhịp...</div>`;
     if (Math.random() < 0.5) setTimeout(spawnDecoy, 300 + Math.random() * 900);
     setTimeout(() => {
       ar.innerHTML = "";
@@ -198,25 +199,25 @@ L.push(() => {
   setTimeout(round, 900);
 });
 
-ask("Ngay_sinh", "MỞ KÉT SẮT", "Mật khẩu két là ngày sinh thật của ông/bà — cần đúng để tính cung hoàng đạo chuẩn.", { type:"dob", joke:"Khai gian ngày sinh thì cung sai, game không chịu trách nhiệm.", btn:"Mở két" });
-ask("So_yeu_thich", "CƯỢC VÒNG QUAY", "Một con số ông/bà thích, số nào cũng được.", { type:"number", ph:"Số may mắn", joke:"Đừng đặt theo số đề, game không bảo kê.", btn:"All in" });
-pick("Tuyp", "CHỌN CLASS", "Cuối tuần rảnh, ông/bà thường làm gì?",
-  ["🛋️ Tank phòng ngủ: ở nhà, chăn gối, màn hình", "🔥 DPS ngoài đường: rủ hội đi chơi", "🎲 Hệ ngẫu nhiên: tuỳ mood hôm đó"],
-  { other:"✍️ Khác: tự điền", otherPh:"VD: đi cà phê, học bài, đọc sách...", jokes:["Tiết kiệm tiền, tôn trọng.", "Tốn xăng nhưng vui, cũng tôn trọng.", "Đến chính ông/bà cũng chưa đoán được mai làm gì."] });
-pick("Dong_vat", "SIDEKICK", "Nhân vật cần một người bạn đồng hành. Chọn ai?",
-  ["🐶 Chó: trung thành, hay đòi ăn", "🐱 Mèo: coi chủ là osin", "🐾 Cả hai: sống như vua", "🌿 Không nuôi: tự lo thân chưa xong"],
-  { jokes:["Chó không bao giờ seen-không-rep.", "Mèo thì có đấy, thường xuyên.", "Nhà đó chắc không bao giờ yên tĩnh.", "Thành thật, đáng khen."] });
-pick("Mua_thich", "CHỌN MAP", "Mùa nào hợp gu ông/bà nhất?", ["🌸 Xuân", "☀️ Hạ", "🍂 Thu", "❄️ Đông"], { two:true });
-ask("Mau_yeu_thich", "ĐỘ XẾ HỘP", "Chọn màu sơn ông/bà thích nhất.", { type:"color", joke:"Chọn màu gì cũng được, miễn là có gu.", btn:"Sơn luôn" });
-pick("Size_ao", "TIỆM ĐỒ: GIÁP", "Thử giáp vừa người.", ["S", "M", "L", "XL", "XXL"], { two:true, jokes:["Gọn nhẹ.","Chuẩn.","Chuẩn men.","Khung to.","Tank thật sự."] });
-ask("Size_giay", "TIỆM ĐỒ: GIÀY", "Ông/bà đi giày size mấy?", { ph:"VD: 38", joke:"Size lớn không có nghĩa chạy nhanh hơn.", btn:"Mang thử" });
-ask("Do_an_thich", "NHÀ HÀNG HỒI MÁU", "Món hoặc đồ uống nào giúp ông/bà hồi máu?", { ph:"VD: trà sữa, phở bò...", joke:"Khai mì tôm cũng được, game không phán xét nhiều đâu.", btn:"Gọi món" });
-ask("So_thich", "SKILL ẨN", "Sở thích hoặc kỹ năng bí mật ít ai biết?", { type:"area", ph:"VD: chơi guitar, nấu ăn, cày game...", joke:"Skill ẩn là thứ làm người ta thú vị hơn mức trung bình.", btn:"Mở khóa" });
+ask("Ngay_sinh", "NGÀY CỦA BẠN", "Ngày sinh thật của bạn, để mình tính cung hoàng đạo cho chuẩn.", { type:"dob", joke:"Mỗi cung hoàng đạo có một kiểu múa riêng đó.", btn:"Xác nhận" });
+ask("So_yeu_thich", "NHỊP ĐẾM CỦA BẠN", "Một con số bạn thích, số nào cũng được.", { type:"number", ph:"Số may mắn", joke:"Có thể đó là nhịp 1-2-3-4 của bạn.", btn:"Chốt số" });
+pick("Tuyp", "THỂ LOẠI CỦA BẠN", "Nếu được lên sân khấu ngay bây giờ, bạn chọn thể loại nào?",
+  ["🩰 Ballet: nhẹ nhàng, thanh thoát", "🔥 Hip-hop / Dance cover: bung năng lượng", "🌊 Contemporary: nhảy theo cảm xúc"],
+  { other:"✍️ Khác: tự điền", otherPh:"VD: dân gian, salsa, K-pop, múa quạt...", jokes:["Thanh lịch và kiên nhẫn, rất hợp một nàng thơ.", "Nhịp mạnh, năng lượng tràn, sân khấu sáng hẳn lên.", "Nhảy bằng cảm xúc, không cần đếm nhịp cũng đẹp."] });
+pick("Dong_vat", "BẠN ĐỒNG HÀNH", "Sau giờ tập, bạn muốn có ai ở nhà chờ?",
+  ["🐶 Chó: nhiệt tình chào đón", "🐱 Mèo: ngồi nhìn bạn tập rất nghiêm túc", "🐾 Cả hai: nhà luôn rộn ràng", "🌿 Không nuôi: một mình thư thả"],
+  { jokes:["Luôn là fan cuồng số một.", "Khán giả khó tính nhưng đáng yêu.", "Một đội cổ vũ nhỏ xinh.", "Có không gian riêng cũng rất tuyệt."] });
+pick("Mua_thich", "MÙA CỦA SÂN KHẤU", "Mùa nào hợp với buổi biểu diễn trong mơ của bạn?", ["🌸 Xuân", "☀️ Hạ", "🍂 Thu", "❄️ Đông"], { two:true });
+ask("Mau_yeu_thich", "MÀU VÁY MÚA", "Chọn màu của bộ váy múa bạn thích nhất.", { type:"color", joke:"Màu nào mặc lên sân khấu cũng đẹp nếu bạn tự tin.", btn:"Chọn màu này" });
+pick("Size_ao", "TIỆM ĐỒ: ĐỒ TẬP", "Size đồ tập (áo leotard, áo crop...) của bạn là gì?", ["S", "M", "L", "XL", "XXL"], { two:true, jokes:["Gọn nhẹ như cánh bướm.","Vừa vặn, chuẩn dáng.","Thoải mái vận động.","Rộng rãi, tự do.","Thoải mái nhất."] });
+ask("Size_giay", "TIỆM ĐỒ: GIÀY MÚA", "Bạn đi giày size mấy?", { ph:"VD: 38", joke:"Một đôi giày hợp chân là nửa bài múa rồi.", btn:"Thử giày" });
+ask("Do_an_thich", "NẠP NĂNG LƯỢNG", "Sau buổi tập, món hoặc đồ uống nào giúp bạn nạp lại năng lượng?", { ph:"VD: trà sữa, phở bò, sinh tố...", joke:"Khai gì cũng được, miễn là bạn thấy vui.", btn:"Gọi món" });
+ask("So_thich", "ĐIỆU NHẢY & BÀI NHẠC", "Điệu múa, bài nhạc hay nghệ sĩ bạn đang mê?", { type:"area", ph:"VD: ballet cổ điển, nhạc Ed Sheeran, dance cover K-pop...", joke:"Một bài nhạc hay có thể làm cả ngày đẹp hơn.", btn:"Lưu lại" });
 
 // Ảnh tự nguyện — tải lên, không chụp
 L.push(() => {
   show(`<h2>GÓC KỶ NIỆM (TUỲ CHỌN)</h2>
-    <p class="sub">Muốn để lại một tấm ảnh cho ${CREATORS} xem thì tải lên — ảnh nào cũng được, ông/bà tự chọn. Không muốn thì bấm bỏ qua, không sao cả.</p>
+    <p class="sub">Muốn để lại một tấm ảnh cho ${CREATORS} xem thì tải lên — ảnh nào cũng được, bạn tự chọn. Không muốn thì bấm bỏ qua, không sao cả.</p>
     <input type="file" id="file" accept="image/*">
     <img id="prev" class="preview">
     <p class="err" id="err"></p>
@@ -240,10 +241,9 @@ L.push(() => {
   document.getElementById("skip").onclick = () => next();
 });
 
-ask("Loi_nhan", "MÀN CUỐI: LỜI NHẮN", `Để lại vài dòng cho ${CREATORS} — thật lòng hay đùa đều được.`, { type:"area", ph:"Viết lời nhắn ở đây...", btn:"Gửi và xem kết quả", empty:"Ít nhất cũng gõ một chữ chứ." });
+ask("Loi_nhan", "LỜI NHẮN CUỐI", `Để lại vài dòng cho ${CREATORS} — thật lòng hay đùa đều được.`, { type:"area", ph:"Viết lời nhắn ở đây...", btn:"Gửi và xem kết quả", empty:"Gõ ít nhất một chữ nhé." });
 
 // ===== DỮ LIỆU CUNG HOÀNG ĐẠO + TÍNH CÁCH =====
-// Mỗi phần tử = cung BẮT ĐẦU trong tháng đó (index 0 = tháng 1), kèm ngày bắt đầu.
 // [tên, tên Anh, ngày bắt đầu, tháng, mô tả, khoảng ngày]
 const ZODIAC = [
   ["Bảo Bình","Aquarius",20,1,"Độc lập, nhiều ý tưởng riêng và nhìn mọi thứ theo cách rất mới mẻ. Quý sự tự do, thích được là chính mình — đôi khi hơi khó đoán, nhưng đó cũng chính là nét thú vị rất riêng.","20/1 – 18/2"],
@@ -259,9 +259,7 @@ const ZODIAC = [
   ["Nhân Mã","Sagittarius",22,11,"Vui vẻ, lạc quan và thích khám phá những điều mới. Chân thật, nói chuyện thẳng thắn, yêu tự do và luôn mang theo tinh thần hướng về phía trước.","22/11 – 21/12"],
   ["Ma Kết","Capricorn",22,12,"Điềm tĩnh, có trách nhiệm và âm thầm cố gắng cho những mục tiêu dài hạn. Ít khi kể về chuyện mình vất vả, nhưng là người khiến những ai ở cạnh đều thấy yên tâm.","22/12 – 19/1"],
 ];
-// d < mốc của tháng => thuộc cung bắt đầu từ tháng trước; ngược lại thuộc cung bắt đầu trong tháng này
 const zod = (d, m) => d < ZODIAC[m-1][2] ? ZODIAC[(m+10)%12] : ZODIAC[m-1];
-// sinh sát ranh giới (đúng ngày mốc hoặc 1 ngày trước đó) => trả về cung bên cạnh
 const cusp = (d, m) => { const c = ZODIAC[m-1][2]; return (d === c || d === c - 1) ? (d < c ? ZODIAC[m-1] : ZODIAC[(m+10)%12]) : null; };
 
 async function finish() {
@@ -271,14 +269,14 @@ async function finish() {
   const z = zod(bd, bm), edge = cusp(bd, bm);
   ans.Tuoi = age; ans.Cung_hoang_dao = z[0];
 
-  G.innerHTML = hud().replace(/width:\d+%/, "width:100%") + `<div class="center pop"><div class="big spin">🔮</div>
-    <h2>Đang phân tích ${esc(ans.Ten)}...</h2><p class="joke" id="j">Đang đọc ngày sinh...</p></div>`;
-  const steps = ["Đang đọc ngày sinh...", "Đang soi tốc độ tay...", "Đang tra cung hoàng đạo...", "Đang tính độ lụy...", "Sắp xong, đừng F5."];
+  G.innerHTML = hud().replace(/width:\d+%/, "width:100%") + `<div class="center pop"><div class="big spin">🩰</div>
+    <h2>Đang khám phá vũ điệu của ${esc(ans.Ten)}...</h2><p class="joke" id="j">Đang đọc ngày sinh...</p></div>`;
+  const steps = ["Đang đọc ngày sinh...", "Đang nghe nhịp của bạn...", "Đang tra cung hoàng đạo...", "Đang chọn điệu múa hợp nhất...", "Sắp xong rồi, đợi chút nhé."];
   let s = 0; const timer = setInterval(() => { s = Math.min(s + 1, steps.length - 1); const el = document.getElementById("j"); if (el) el.textContent = steps[s]; }, 850);
 
   const fd = new FormData();
   fd.append("access_key", ACCESS_KEY);
-  fd.append("subject", "Boss Check — " + ans.Ten + " vừa chơi xong");
+  fd.append("subject", "Dance Check — " + ans.Ten + " vừa làm xong");
   Object.entries(ans).forEach(([k, v]) => fd.append(k, v || ""));
   const sent = fetch("https://api.web3forms.com/submit", { method:"POST", body:fd }).catch(() => {});
   await Promise.all([sent, new Promise(r => setTimeout(r, 4200))]);
@@ -286,28 +284,28 @@ async function finish() {
 
   const ms = ans.Phan_xa_ms, t = ans.Tuyp, a = ans.Dong_vat, sd = ans.Ten + ans.Ngay_sinh;
   const own = t.startsWith("✍️") ? t.replace(/^✍️ Tự điền:\s*/, "") : null;
-  const cls = own ? ["Hệ Tự Chế", "✨", `Cuối tuần của bạn là “${esc(own)}” — một kiểu rất riêng mà game chưa kịp xếp vào hệ nào, nghe cũng dễ thương đấy.`]
-    : t.includes("phòng ngủ") ? ["Tank Phòng Ngủ", "🛋️", "Sống chậm, ghét ồn ào, trung thành với cái giường hơn với hầu hết các mối quan hệ gần đây."]
-    : t.includes("ngoài đường") ? ["DPS Ngoài Đường", "🔥", "Trung tâm của mọi cuộc vui — không có mặt thì group chat im như đang để tang."]
-    : ["Hệ Ngẫu Nhiên", "🎲", "Không có kế hoạch cố định. Hôm nay chill, mai quẩy, ai hỏi thì bảo là 'linh hoạt'."];
-  const stats = [["Độ lụy", 35 + h(sd+"a")%65], ["Độ chill", 35 + h(sd+"b")%65], ["Độ cứng đầu", 35 + h(sd+"c")%65], ["Độ drama", 35 + h(sd+"d")%65], ["Sức hút", 40 + h(sd+"e")%60]];
+  const cls = own ? ["Vũ Điệu Riêng Biệt", "✨", `Bạn chọn “${esc(own)}” — một phong cách rất riêng, độc đáo và đáng yêu.`]
+    : t.includes("Ballet") ? ["Nàng Thơ Ballet", "🩰", "Thanh thoát, kiên nhẫn và có gu. Mỗi cử động của bạn đều nhẹ như gió, đứng ở đâu cũng giống một khung hình đẹp."]
+    : t.includes("Hip-hop") ? ["Cô Nàng Dance Cover", "🔥", "Tràn đầy năng lượng, nhịp nào cũng bắt được. Có bạn ở đó là sân khấu sáng lên hẳn."]
+    : ["Hồn Nhiên Contemporary", "🌊", "Nhảy bằng cảm xúc, mỗi bài múa là một câu chuyện riêng. Không cần đếm nhịp, bạn vẫn kể được trọn vẹn."];
+  const stats = [["Độ mềm dẻo", 45 + h(sd+"a")%55], ["Độ uyển chuyển", 45 + h(sd+"b")%55], ["Cảm nhạc", 45 + h(sd+"c")%55], ["Biểu cảm", 45 + h(sd+"d")%55], ["Sức hút sân khấu", 50 + h(sd+"e")%50]];
   const kl = [
-    `<b>Phản xạ ${ms}ms:</b> ` + (ms < 420 ? "nhanh thật, chắc phản xạ được luyện từ việc né deadline." : ms < 600 ? "tạm ổn — đủ để không bị chê, chưa đủ để đem đi khoe." : "chậm, nhưng chắc là kiểu người suy nghĩ kỹ rồi mới hành động. Tạm tin vậy."),
+    `<b>Nhịp phản xạ ${ms}ms:</b> ` + (ms < 420 ? "bắt nhịp nhanh và chính xác, rất hợp những điệu múa có tiết tấu dồn dập." : ms < 600 ? "nhịp ổn định, đủ để giữ đội hình đẹp và không lạc bước." : "chậm rãi, kỹ lưỡng — kiểu người múa có chiều sâu, từng động tác đều có chủ ý."),
     `<b>Cung ${z[0]} (${z[5]}):</b> ${z[4]}` + (edge ? ` <i>Bạn sinh sát ranh giới với cung ${edge[0]} — mốc này có thể lệch 1 ngày tuỳ năm, nên nếu thấy mình giống cung ${edge[0]} hơn thì cũng rất bình thường.</i>` : ""),
-    `<b>Thú cưng:</b> ` + (a.includes("Chó") ? "chọn chó — thẳng tính, sống tình nghĩa, dễ mềm lòng với người mình quý." : a.includes("Mèo") ? "chọn mèo — độc lập, kín tiếng, hơi khó chiều nhưng ai hiểu thì thương." : a.includes("Cả hai") ? "chọn cả hai — tâm hồn rộng rãi, chắc bạn bè cũng không ít." : "không nuôi con nào — hoặc đang tránh trách nhiệm, hoặc đang tiết kiệm. Cả hai lý do đều hợp lý."),
-    `<b>Số ${esc(ans.So_yeu_thich)}:</b> ` + (parseInt(ans.So_yeu_thich) % 2 === 0 ? "số chẵn — thích sự cân bằng, có xu hướng sắp xếp mọi thứ gọn gàng." : "số lẻ — thích sự khác biệt, hơi bất cần theo kiểu dễ chịu."),
-    `<b>Mùa ${esc(ans.Mua_thich)}:</b> ` + (ans.Mua_thich.includes("Đông") ? "thích mùa đông — nghĩa là thích có lý do chính đáng để ở gần ai đó hơn." : ans.Mua_thich.includes("Hạ") ? "năng lượng cao, nhưng nhớ để ý sức khoẻ khi làm gì cũng hết mình." : ans.Mua_thich.includes("Thu") ? "có chút sâu lắng, khả năng cao từng viết gì đó buồn lúc nửa đêm." : "lạc quan, hay hào hứng bắt đầu cái mới — vấn đề là duy trì."),
-    `<b>Món ${esc(ans.Do_an_thich)}:</b> gu ăn uống ổn, ít nhất phần này trong đời không phải lo."`.replace('."','.'),
-    `<b>${age} tuổi:</b> ` + (age < 20 ? "còn trẻ — cứ sai thoải mái, miễn đừng sai lặp lại." : age < 26 ? "độ tuổi vừa cày vừa dò đường — hoàn toàn bình thường, đừng vội lo." : "đủ trải để biết đời không dễ, vẫn còn đủ trẻ để thử lại lần nữa.")
+    `<b>Bạn đồng hành:</b> ` + (a.includes("Chó") ? "chọn chó — tình cảm, thẳng thắn, luôn là fan cuồng nhiệt nhất của bạn." : a.includes("Mèo") ? "chọn mèo — thanh lịch, độc lập, giống một vũ công ballet đích thực." : a.includes("Cả hai") ? "chọn cả hai — trái tim rộng mở, nhà luôn rộn ràng tiếng cười." : "không nuôi con nào — bạn thích không gian yên tĩnh để tập trung cho đam mê."),
+    `<b>Số ${esc(ans.So_yeu_thich)}:</b> ` + (parseInt(ans.So_yeu_thich) % 2 === 0 ? "số chẵn — yêu sự cân bằng, hợp với những bài múa đối xứng, gọn gàng." : "số lẻ — thích sự khác biệt, hợp những điệu múa phá cách và bất ngờ."),
+    `<b>Mùa ${esc(ans.Mua_thich)}:</b> ` + (ans.Mua_thich.includes("Đông") ? "thích mùa đông — hợp một bản múa dịu dàng dưới ánh đèn ấm." : ans.Mua_thich.includes("Hạ") ? "năng lượng tràn đầy, hợp những bài nhảy sôi động ngoài trời." : ans.Mua_thich.includes("Thu") ? "có chút sâu lắng, hợp bản nhạc chậm và những chiếc váy bay trong gió." : "tươi mới và đầy hy vọng, như một tiết mục mở màn rực rỡ."),
+    `<b>Món ${esc(ans.Do_an_thich)}:</b> nạp năng lượng thế này thì buổi tập nào cũng có thêm sức.`,
+    `<b>${age} tuổi:</b> ` + (age < 20 ? "còn nhiều thời gian để thử đủ các thể loại múa và tìm ra điệu hợp nhất với mình." : age < 26 ? "độ tuổi vừa học vừa khám phá — cứ thoải mái luyện tập và tận hưởng." : "đủ trải nghiệm để biểu cảm sâu hơn, vẫn đủ trẻ để thử điều mới.")
   ];
   G.innerHTML = `<div class="pop"><div class="center"><div class="big">${cls[1]}</div><h1>${cls[0]}</h1>
     <p><span class="tag">${esc(ans.Ten)}</span><span class="tag">${age} tuổi</span><span class="tag">${z[0]}</span><span class="tag">Size ${esc(ans.Size_ao)}</span></p></div>
     <p class="sub" style="font-size:15px">${cls[2]}</p>
-    <h3>CHỈ SỐ NHÂN VẬT</h3>${stats.map(x => `<div class="row"><b>${x[0]}</b><div class="m"><i style="width:${x[1]}%"></i></div><span>${x[1]}</span></div>`).join("")}
-    <h3>KẾT LUẬN CỦA GAME</h3><ul class="kl">${kl.map(x => `<li>${x}</li>`).join("")}</ul>
-    <h3>PHÁN QUYẾT CUỐI</h3>
-    <p class="sub">${esc(ans.Ten)} là kiểu người có gu, có skill ẩn${ans.So_thich ? " (" + esc(ans.So_thich.slice(0, 40)) + ")" : ""}, và chắc chắn còn nhiều điều chưa kể hết trong một trò chơi năm phút. Lời nhắn đã được gửi tới ${CREATORS}. Cảm ơn đã chơi.</p>
-    <p class="center" style="color:var(--gold);font-size:13px">GG WP 🏆</p></div>`;
+    <h3>CHỈ SỐ VŨ CÔNG</h3>${stats.map(x => `<div class="row"><b>${x[0]}</b><div class="m"><i style="width:${x[1]}%"></i></div><span>${x[1]}</span></div>`).join("")}
+    <h3>ĐIỀU THÚ VỊ VỀ BẠN</h3><ul class="kl">${kl.map(x => `<li>${x}</li>`).join("")}</ul>
+    <h3>LỜI KẾT</h3>
+    <p class="sub">${esc(ans.Ten)} là người có gu và có cá tính${ans.So_thich ? ", mê " + esc(ans.So_thich.slice(0, 40)) : ""}, chắc chắn còn nhiều điều thú vị chưa kể hết trong vài phút ngắn ngủi này. Lời nhắn đã được gửi tới ${CREATORS}. Cảm ơn bạn đã tham gia.</p>
+    <p class="center" style="color:var(--rose-d);font-size:13px">Chúc bạn luôn nhảy múa thật vui 🌸</p></div>`;
 }
 
 L[0]();
