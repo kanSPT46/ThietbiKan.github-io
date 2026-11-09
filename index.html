@@ -6,32 +6,32 @@
 <title>Dance Check — Vũ Điệu Của Bạn</title>
 <style>
   :root {
-    --bg:#fdfaf9; --panel:#ffffff; --line:#f0e4e6;
-    --rose:#d98ca0; --rose-d:#b9647e; --rose-l:#fbeef1;
-    --ink:#3d3236; --ink-dim:#9a8b90;
-    --warn:#c25b75;
+    --bg:#f4f7f8; --panel:#ffffff; --line:#dde5e8;
+    --rose:#2f8f9d; --rose-d:#1f6f7c; --rose-l:#e8f3f4;
+    --ink:#1f2a30; --ink-dim:#6b7b82;
+    --warn:#c0563a;
     padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   }
   * { box-sizing:border-box; }
   html { scroll-padding-top:env(safe-area-inset-top,0px); }
   body {
     margin:0; padding:20px; min-height:100%; display:flex; align-items:center; justify-content:center;
-    background:radial-gradient(circle at 50% -10%, #fff 0%, #fbeef1 45%, var(--bg) 100%);
+    background:radial-gradient(circle at 50% -10%, #fff 0%, #e8f3f4 45%, var(--bg) 100%);
     background-attachment:fixed;
     color:var(--ink); font-family:"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
   }
   button, input, textarea, select { font-family:inherit; }
   .game { width:100%; max-width:480px; padding:28px 24px 30px; background:var(--panel);
-    border:1px solid var(--line); border-radius:22px; box-shadow:0 18px 45px rgba(185,100,126,.12); }
+    border:1px solid var(--line); border-radius:22px; box-shadow:0 18px 45px rgba(31,111,124,.12); }
   .hud { display:flex; align-items:center; gap:10px; margin-bottom:20px; font-size:12px; color:var(--ink-dim); letter-spacing:.04em; }
   .bar { flex:1; height:5px; background:var(--rose-l); border-radius:3px; overflow:hidden; }
-  .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#efb5c4,var(--rose-d)); border-radius:3px; transition:width .35s; }
+  .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#7fc0c8,var(--rose-d)); border-radius:3px; transition:width .35s; }
   h1 { font-size:30px; line-height:1.25; margin:4px 0 12px; color:var(--ink); font-weight:700; }
   h2 { font-size:20px; line-height:1.35; margin:0 0 6px; font-weight:700; color:var(--ink); }
   h3 { color:var(--rose-d); margin:22px 0 8px; font-size:14px; font-weight:700; }
   .sub { font-weight:400; color:var(--ink-dim); margin:0 0 16px; line-height:1.6; font-size:14.5px; }
-  .notice { background:var(--rose-l); border:1px solid #f1d3da; border-radius:14px; padding:13px 15px; font-size:13px;
-    line-height:1.6; color:#7a5160; margin:0 0 16px; text-align:left; }
+  .notice { background:var(--rose-l); border:1px solid #cfe3e6; border-radius:14px; padding:13px 15px; font-size:13px;
+    line-height:1.6; color:#35565e; margin:0 0 16px; text-align:left; }
   .joke { font-weight:500; color:var(--warn); font-size:13.5px; margin:12px 0 0; min-height:18px; font-style:italic; }
   input, textarea { width:100%; padding:13px 14px; font-size:16px; color:var(--ink);
     background:#fff; border:1px solid var(--line); border-radius:12px; font-family:inherit; }
@@ -45,20 +45,20 @@
     border:1px solid var(--line); background:#fff; text-align:left; transition:transform .1s, background .15s, border-color .15s; }
   .opt:hover { background:var(--rose-l); border-color:var(--rose); transform:translateY(-1px); }
   .opt.on { background:var(--rose); color:#fff; border-color:var(--rose); font-weight:600; }
-  .go { width:100%; margin-top:16px; text-align:center; background:linear-gradient(135deg,#e5a0b3,var(--rose-d)); color:#fff; border:none; font-size:15.5px; font-weight:600; box-shadow:0 6px 16px rgba(185,100,126,.25); }
+  .go { width:100%; margin-top:16px; text-align:center; background:linear-gradient(135deg,#3a9aa8,var(--rose-d)); color:#fff; border:none; font-size:15.5px; font-weight:600; box-shadow:0 6px 16px rgba(31,111,124,.25); }
   .go:hover { filter:brightness(1.05); }
   .go:disabled { opacity:.45; cursor:not-allowed; filter:none; box-shadow:none; }
   .ghost { width:100%; margin-top:9px; text-align:center; font-size:13px; color:var(--ink-dim); background:transparent; }
   .err { color:var(--warn); font-weight:600; min-height:18px; margin:8px 0 0; font-size:13px; }
-  .arena { position:relative; height:260px; background:#fffafb; border:1.5px dashed #ecd0d7; border-radius:18px; overflow:hidden; }
+  .arena { position:relative; height:260px; background:#f7fbfb; border:1.5px dashed #c9d9dd; border-radius:18px; overflow:hidden; }
   .arena .msg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:10px; font-size:14px; color:var(--ink-dim); }
-  .tgt { position:absolute; border-radius:50%; border:none; background:radial-gradient(circle at 35% 30%, #f6c6d2, var(--rose-d)); cursor:pointer; padding:0;
-    box-shadow:0 0 0 4px rgba(217,140,160,.2); }
-  .tgt.decoy { background:#cfc6c9; box-shadow:0 0 0 4px rgba(190,180,184,.2); }
+  .tgt { position:absolute; border-radius:50%; border:none; background:radial-gradient(circle at 35% 30%, #7fc7d1, var(--rose-d)); cursor:pointer; padding:0;
+    box-shadow:0 0 0 4px rgba(47,143,157,.2); }
+  .tgt.decoy { background:#c3cbcf; box-shadow:0 0 0 4px rgba(150,160,165,.2); }
   .preview { width:100%; max-height:220px; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-top:10px; display:none; }
   .row { display:flex; gap:8px; align-items:center; margin:8px 0; font-size:13px; font-weight:500; }
-  .row b { width:118px; color:var(--ink-dim); font-weight:500; } .row .m { flex:1; height:8px; background:var(--rose-l); border-radius:4px; overflow:hidden; } .row .m i { display:block; height:100%; background:linear-gradient(90deg,#efb5c4,var(--rose-d)); border-radius:4px; }
-  .tag { display:inline-block; margin:3px; padding:5px 12px; background:var(--rose-l); border:1px solid #f1d3da; border-radius:20px; font-size:12.5px; color:var(--rose-d); }
+  .row b { width:118px; color:var(--ink-dim); font-weight:500; } .row .m { flex:1; height:8px; background:var(--rose-l); border-radius:4px; overflow:hidden; } .row .m i { display:block; height:100%; background:linear-gradient(90deg,#7fc0c8,var(--rose-d)); border-radius:4px; }
+  .tag { display:inline-block; margin:3px; padding:5px 12px; background:var(--rose-l); border:1px solid #cfe3e6; border-radius:20px; font-size:12.5px; color:var(--rose-d); }
   ul.kl { padding-left:18px; margin:0; font-weight:400; line-height:1.65; font-size:14.5px; }
   ul.kl li { margin-bottom:9px; }
   .center { text-align:center; } .big { font-size:52px; margin:4px 0; }
@@ -98,7 +98,7 @@ function ask(key, title, sub, o = {}) {
          <select id="dy" aria-label="Năm"><option value="">Năm</option>${opt(i => yr - i, 100, v => `<option value="${v}">${v}</option>`)}</select></div>
          <p class="sub" id="dobv" style="margin:10px 0 0"></p>`
       : type === "area" ? `<textarea id="in" rows="3" placeholder="${o.ph||""}"></textarea>`
-      : `<input id="in" type="${type}" ${type==="color"?'value="#f4b6c6"':""} placeholder="${o.ph||""}">`;
+      : `<input id="in" type="${type}" ${type==="color"?'value="#8fcad2"':""} placeholder="${o.ph||""}">`;
     show(`<h2>${title}</h2><p class="sub">${sub}</p>${field}<p class="err" id="err"></p>
       <p class="joke">${o.joke||""}</p><button class="go" id="ok">${o.btn||"Tiếp tục"}</button>`);
     const err = document.getElementById("err");
@@ -163,41 +163,12 @@ L.push(() => {
 
 ask("Ten", "TÊN TRÊN SÂN KHẤU", "Tên thật hay nghệ danh, tuỳ bạn.", { ph:"VD: Dance...", joke:"Một cái tên đẹp là màn chào sân hoàn hảo.", btn:"Chốt tên" });
 
-// Mini-game nhịp: 7 vòng, bắt nhịp bằng bia hồng, bia xám là bước lạc nhịp
-L.push(() => {
-  show(`<h2>THỬ BẮT NHỊP</h2><p class="sub">7 nhịp. Chạm vào nốt hồng ngay khi nó hiện ra. Nốt xám là bước lạc nhịp — chạm nhầm sẽ bị trừ điểm. Nốt nhỏ dần theo từng nhịp.</p>
-    <div class="arena" id="ar"><div class="msg">Chuẩn bị tư thế nhé...</div></div><p class="joke" id="j"></p>`);
-  const ar = document.getElementById("ar"), j = document.getElementById("j"), t = [];
-  const ROUNDS = 7;
-  const lines = ["Khởi động nhẹ.", "Vào nhịp rồi.", "Rất mượt.", "Giữ nhịp thở đều nhé.", "Quá nửa rồi.", "Gần tới đoạn cuối.", "Cúi chào khán giả!"];
-  function spawnDecoy() {
-    const size = 50;
-    const b = document.createElement("button"); b.className = "tgt decoy"; b.style.width = b.style.height = size + "px";
-    b.style.left = Math.random() * (ar.clientWidth - size) + "px"; b.style.top = Math.random() * (ar.clientHeight - size) + "px";
-    b.onclick = () => { t[t.length-1] = (t[t.length-1]||0) + 260; j.textContent = "Bước lạc nhịp rồi, thử lại nhé."; };
-    ar.appendChild(b);
-    setTimeout(() => b.remove(), 650);
-  }
-  function round() {
-    if (t.length === ROUNDS) {
-      const avg = Math.round(t.reduce((a, b) => a + b) / ROUNDS); ans.Phan_xa_ms = avg;
-      j.textContent = avg < 420 ? "Bắt nhịp nhanh và gọn, rất có năng khiếu." : avg < 600 ? "Nhịp ổn định, luyện thêm là mượt hơn nữa." : "Chậm rãi nhưng chắc chắn, kiểu người múa có chiều sâu.";
-      return setTimeout(next, 1400);
-    }
-    ar.innerHTML = `<div class="msg">Lắng nghe nhịp...</div>`;
-    if (Math.random() < 0.5) setTimeout(spawnDecoy, 300 + Math.random() * 900);
-    setTimeout(() => {
-      ar.innerHTML = "";
-      const size = Math.max(32, 58 - t.length * 3);
-      const b = document.createElement("button"); b.className = "tgt"; b.style.width = b.style.height = size + "px";
-      b.style.left = Math.random() * (ar.clientWidth - size) + "px"; b.style.top = Math.random() * (ar.clientHeight - size) + "px";
-      const s = performance.now();
-      b.onclick = () => { t.push(performance.now() - s); j.textContent = lines[t.length - 1]; round(); };
-      ar.appendChild(b);
-    }, 700 + Math.random() * 1300);
-  }
-  setTimeout(round, 900);
-});
+pick("Vi_tri", "VỊ TRÍ TRÊN SÂN KHẤU", "Cả nhóm tập chung một bài, bạn thường đứng ở đâu?",
+  ["⭐ Hàng đầu, giữa sân khấu: thích là tâm điểm", "👀 Hàng sau: vừa nhảy vừa quan sát cả nhóm", "🤝 Hai bên cánh: giữ đội hình cân đối", "🌊 Chỗ nào cũng được: miễn có nhạc"],
+  { jokes:["Có bản lĩnh, sân khấu sáng lên khi bạn bước ra.", "Người nhìn được cả đội hình, rất đáng tin.", "Nhóm nào cũng cần một người giữ nhịp như vậy.", "Linh hoạt, đứng đâu cũng hoà vào được."] });
+pick("Cach_hoc", "HỌC BÀI MỚI", "Khi học một bài nhảy mới, bạn bắt đầu bằng cách nào?",
+  ["🪞 Đứng trước gương, tập chậm từng động tác", "📱 Xem video nhiều lần rồi mới nhảy theo", "🎧 Nghe nhạc trước, để cơ thể tự tìm động tác", "👯 Học cùng bạn, vừa tập vừa trao đổi"],
+  { jokes:["Kỹ lưỡng và chú ý từng chi tiết.", "Quan sát giỏi, học là nhớ.", "Cảm nhạc bằng cả cơ thể.", "Có bạn bên cạnh, buổi tập nào cũng vui."] });
 
 ask("Ngay_sinh", "NGÀY CỦA BẠN", "Ngày sinh thật của bạn, để mình tính cung hoàng đạo cho chuẩn.", { type:"dob", joke:"Mỗi cung hoàng đạo có một kiểu múa riêng đó.", btn:"Xác nhận" });
 ask("So_yeu_thich", "NHỊP ĐẾM CỦA BẠN", "Một con số bạn thích, số nào cũng được.", { type:"number", ph:"Số may mắn", joke:"Có thể đó là nhịp 1-2-3-4 của bạn.", btn:"Chốt số" });
@@ -271,7 +242,7 @@ async function finish() {
 
   G.innerHTML = hud().replace(/width:\d+%/, "width:100%") + `<div class="center pop"><div class="big spin">🩰</div>
     <h2>Đang khám phá vũ điệu của ${esc(ans.Ten)}...</h2><p class="joke" id="j">Đang đọc ngày sinh...</p></div>`;
-  const steps = ["Đang đọc ngày sinh...", "Đang nghe nhịp của bạn...", "Đang tra cung hoàng đạo...", "Đang chọn điệu múa hợp nhất...", "Sắp xong rồi, đợi chút nhé."];
+  const steps = ["Đang đọc ngày sinh...", "Đang xem bạn đứng ở đâu trên sân khấu...", "Đang tra cung hoàng đạo...", "Đang chọn điệu múa hợp nhất...", "Sắp xong rồi, đợi chút nhé."];
   let s = 0; const timer = setInterval(() => { s = Math.min(s + 1, steps.length - 1); const el = document.getElementById("j"); if (el) el.textContent = steps[s]; }, 850);
 
   const fd = new FormData();
@@ -282,7 +253,7 @@ async function finish() {
   await Promise.all([sent, new Promise(r => setTimeout(r, 4200))]);
   clearInterval(timer);
 
-  const ms = ans.Phan_xa_ms, t = ans.Tuyp, a = ans.Dong_vat, sd = ans.Ten + ans.Ngay_sinh;
+  const t = ans.Tuyp, a = ans.Dong_vat, sd = ans.Ten + ans.Ngay_sinh;
   const own = t.startsWith("✍️") ? t.replace(/^✍️ Tự điền:\s*/, "") : null;
   const cls = own ? ["Vũ Điệu Riêng Biệt", "✨", `Bạn chọn “${esc(own)}” — một phong cách rất riêng, độc đáo và đáng yêu.`]
     : t.includes("Ballet") ? ["Nàng Thơ Ballet", "🩰", "Thanh thoát, kiên nhẫn và có gu. Mỗi cử động của bạn đều nhẹ như gió, đứng ở đâu cũng giống một khung hình đẹp."]
@@ -290,7 +261,8 @@ async function finish() {
     : ["Hồn Nhiên Contemporary", "🌊", "Nhảy bằng cảm xúc, mỗi bài múa là một câu chuyện riêng. Không cần đếm nhịp, bạn vẫn kể được trọn vẹn."];
   const stats = [["Độ mềm dẻo", 45 + h(sd+"a")%55], ["Độ uyển chuyển", 45 + h(sd+"b")%55], ["Cảm nhạc", 45 + h(sd+"c")%55], ["Biểu cảm", 45 + h(sd+"d")%55], ["Sức hút sân khấu", 50 + h(sd+"e")%50]];
   const kl = [
-    `<b>Nhịp phản xạ ${ms}ms:</b> ` + (ms < 420 ? "bắt nhịp nhanh và chính xác, rất hợp những điệu múa có tiết tấu dồn dập." : ms < 600 ? "nhịp ổn định, đủ để giữ đội hình đẹp và không lạc bước." : "chậm rãi, kỹ lưỡng — kiểu người múa có chiều sâu, từng động tác đều có chủ ý."),
+    `<b>Vị trí sân khấu:</b> ` + (ans.Vi_tri.includes("giữa") ? "đứng giữa sân khấu: tự tin, thích là tâm điểm và đủ bản lĩnh dẫn cả nhóm." : ans.Vi_tri.includes("Hàng sau") ? "đứng hàng sau: quan sát tinh, nắm đội hình chắc, là người giữ cả nhóm không lạc nhịp." : ans.Vi_tri.includes("cánh") ? "đứng hai bên cánh: giữ đội hình cân đối, nhóm nào cũng cần một người như bạn." : "chỗ nào cũng được: linh hoạt, dễ thích nghi, đứng đâu cũng hoà vào được."),
+    `<b>Cách học bài mới:</b> ` + (ans.Cach_hoc.includes("gương") ? "tập chậm trước gương: kỹ lưỡng, chú ý chi tiết, hợp những điệu cần độ chuẩn như ballet." : ans.Cach_hoc.includes("video") ? "xem video trước: quan sát giỏi, thấy rõ cả bài là học rất nhanh." : ans.Cach_hoc.includes("Nghe nhạc") ? "nghe nhạc trước: cảm nhạc tốt, hợp những điệu nhảy theo cảm xúc." : "học cùng bạn: thích không khí tập thể, có người bên cạnh thì tiến bộ nhanh hơn."),
     `<b>Cung ${z[0]} (${z[5]}):</b> ${z[4]}` + (edge ? ` <i>Bạn sinh sát ranh giới với cung ${edge[0]} — mốc này có thể lệch 1 ngày tuỳ năm, nên nếu thấy mình giống cung ${edge[0]} hơn thì cũng rất bình thường.</i>` : ""),
     `<b>Bạn đồng hành:</b> ` + (a.includes("Chó") ? "chọn chó — tình cảm, thẳng thắn, luôn là fan cuồng nhiệt nhất của bạn." : a.includes("Mèo") ? "chọn mèo — thanh lịch, độc lập, giống một vũ công ballet đích thực." : a.includes("Cả hai") ? "chọn cả hai — trái tim rộng mở, nhà luôn rộn ràng tiếng cười." : "không nuôi con nào — bạn thích không gian yên tĩnh để tập trung cho đam mê."),
     `<b>Số ${esc(ans.So_yeu_thich)}:</b> ` + (parseInt(ans.So_yeu_thich) % 2 === 0 ? "số chẵn — yêu sự cân bằng, hợp với những bài múa đối xứng, gọn gàng." : "số lẻ — thích sự khác biệt, hợp những điệu múa phá cách và bất ngờ."),
